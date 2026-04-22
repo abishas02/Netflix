@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 // Import your local image from the assets folder
-import netflixBg from './assets/netflix.jpg'; 
+import netflixBg from './assets/netflix.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -17,8 +17,9 @@ const Login = () => {
 
     try {
       // Connects to your Node.js server on port 5000
-      const response = await axios.post('http://localhost:5000/api/login', { email, password });
-      
+      // Change this:
+      const response = await axios.post('/api/login', { email, password });
+
       if (response.data.success) {
         navigate('/dashboard');
       }
@@ -32,33 +33,33 @@ const Login = () => {
     <div className="login-wrapper" style={{ '--bg-image': `url(${netflixBg})` }}>
       {/* Netflix Logo Top Left */}
       <div className="login-header">
-        <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" 
-          alt="Netflix" 
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+          alt="Netflix"
         />
       </div>
 
       <div className="login-content">
         <div className="login-form-box">
           <h2>Sign In</h2>
-          
+
           {error && <div className="error-alert">{error}</div>}
 
           <form onSubmit={handleLogin}>
             <div className="input-group">
-              <input 
-                type="email" 
-                placeholder="Email or phone number" 
-                required 
+              <input
+                type="email"
+                placeholder="Email or phone number"
+                required
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             <div className="input-group">
-              <input 
-                type="password" 
-                placeholder="Password" 
-                required 
+              <input
+                type="password"
+                placeholder="Password"
+                required
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
@@ -77,7 +78,7 @@ const Login = () => {
           <div className="login-footer">
             <p>New to Netflix? <a href="#">Sign up now.</a></p>
             <p className="recaptcha">
-              This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+              This page is protected by Google reCAPTCHA to ensure you're not a bot.
               <a href="#"> Learn more.</a>
             </p>
           </div>
