@@ -6,25 +6,25 @@ import './Login.css';
 import netflixBg from './assets/netflix.jpg';
 
 const Login = () => {
+  // Add these two lines back!
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
-
+   const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  
     try {
-      // Connects to your Node.js server on port 5000
-      // Change this:
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, { email, password });
 
+      const response = await axios.post(`${backendUrl}/api/login`, { email, password });
       if (response.data.success) {
         navigate('/dashboard');
       }
     } catch (err) {
-      // Shows the error message from the backend
       setError(err.response?.data?.message || "Invalid email or password.");
     }
   };
@@ -51,6 +51,7 @@ const Login = () => {
                 type="email"
                 placeholder="Email or phone number"
                 required
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -60,6 +61,7 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 required
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
