@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+.landing-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  overflow-x: hidden;
+  background-color: black;
+}
+
+.landing-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: 
+    linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.8) 100%),
+    var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px); 
+  transform: scale(1.05); 
+  animation: backgroundZoom 20s infinite alternate ease-in-out;
+}
+
+@keyframes backgroundZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.15); }
+}
+
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 5%;
+  position: relative;
+  z-index: 10;
+}
+
+.logo { width: 150px; }
+
+.header-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.language-selector select {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.signin-btn {
+  background-color: #e50914;
+  color: white;
+  padding: 7px 17px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  padding: 40px 20px;
+}
+
+.hero-content { max-width: 800px; }
+
+.hero-content h1 {
+  font-size: clamp(1.75rem, 5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.cta-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.cta-input {
+  width: 100%;
+  max-width: 450px;
+  padding: 18px 20px;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  border-radius: 4px;
+}
+
+.cta-button {
+  background-color: #e50914;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Darker backdrop to make colors pop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+.custom-alert-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3); /* Subtle red glow */
+  animation: slideUp 0.4s ease;
+}
+
+.alert-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.custom-alert-box h3 {
+  color: #e50914; /* Netflix Red */
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.custom-alert-box p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.alert-ok-btn {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 100%;
+}
+
+.alert-ok-btn:hover {
+  background: #c11119;
+  transform: scale(1.05);
+}
+
+/* --- MOBILE RESPONSIVE QUERIES --- */
+@media (max-width: 768px) {
+  .logo { width: 100px; }
+  .landing-header { padding: 20px 20px; }
+  .cta-input { padding: 12px 15px; }
+  .cta-button { font-size: 1rem; width: auto; }
+}
+
+@media (max-width: 480px) {
+  .header-right { gap: 5px; }
+  .signin-btn { padding: 5px 10px; font-size: 0.8rem; }
+  .language-selector select { padding: 4px 8px; font-size: 0.8rem; }
+  .hero-content h1 { line-height: 1.2; }
+}

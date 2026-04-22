@@ -1,0 +1,159 @@
+/* Base Styles */
+.signup-page-container {
+  min-height: 100vh;
+  background-color: white;
+  color: #333;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.signup-header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 4%;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.signup-brand-logo { width: 120px; }
+
+.signup-nav-signin {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.signup-content-body {
+  max-width: 440px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.signup-icon-wrapper img {
+  width: 260px;
+  margin-bottom: 20px;
+}
+
+.signup-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.signup-subtext {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.signup-submit-btn {
+  width: 100%;
+  padding: 18px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.themed-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); /* Darker backdrop for focus */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Ensure it's always on top */
+  backdrop-filter: blur(4px); /* Modern blur effect */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.themed-alert-box {
+  background: white;
+  padding: 40px;
+  border-radius: 12px; /* Smooth professional curve */
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.25); /* Professional shadow */
+  animation: scaleUp 0.3s ease-out;
+}
+
+.alert-mail-icon {
+  font-size: 4rem; /* Larger icon */
+  color: #c11119; /* A professional dark red */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert-title {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 800; /* Extra bold */
+  margin-bottom: 15px;
+}
+
+.alert-msg {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.alert-msg b {
+  color: #000;
+  font-weight: 600;
+}
+
+.alert-close-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: #e50914; /* Original colorful red */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.alert-close-btn:hover {
+  background-color: #c11119;
+}
+
+.alert-close-btn:active {
+  transform: scale(0.98); /* Slight click effect */
+}
+
+/* Animations for professionalism */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* --- MOBILE RESPONSIVE QUERIES --- */
+@media (max-width: 768px) {
+  .signup-content-body { margin: 40px auto; }
+  .signup-heading { font-size: 1.7rem; }
+  .signup-icon-wrapper img { width: 200px; }
+}
+
+@media (max-width: 480px) {
+  .signup-brand-logo { width: 90px; }
+  .signup-nav-signin { font-size: 1rem; }
+  .signup-heading { font-size: 1.5rem; }
+  .signup-submit-btn { font-size: 1.2rem; padding: 14px; }
+  
+}
