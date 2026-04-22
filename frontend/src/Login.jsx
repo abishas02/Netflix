@@ -18,7 +18,7 @@ const Login = () => {
     try {
       // Connects to your Node.js server on port 5000
       // Change this:
-      const response = await axios.post('/api/login', { email, password });
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, { email, password });
 
       if (response.data.success) {
         navigate('/dashboard');
